@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component} from '@angular/core';
 import {HttpClient} from "@angular/common/http";
 
 
@@ -8,22 +8,33 @@ import {HttpClient} from "@angular/common/http";
   styleUrls: ['./student.component.css']
 })
 export class StudentComponent {
-  title="Student";
+  title = "Student";
 
 
-  constructor(private  http:HttpClient) {
+  constructor(private http: HttpClient) {
     this.http = http;
   }
-  findAllStudent = ()=>{
-  this.http.get( "http://localhost:4200/api/student").subscribe({
-    next:data=>{
-      console.log(data)
-    },
-    error:err => {
-      console.error("not found student")
-    }
-    }
-  )
-  }
 
+  findAllStudent = () => {
+    this.http.get("http://localhost:8080/api/student").subscribe({
+        next: data => {
+          console.log(data)
+        },
+        error: err => {
+          console.error("not found student")
+        }
+      }
+    )
+  }
+  findAll() : string {
+    this.http.get("http://localhost:8080/api/student").subscribe({
+      next : data => {
+        return data;
+      },
+      error: err => {
+        console.log("not found student")
+      }
+    })
+    return 'not found';
+  }
 }
