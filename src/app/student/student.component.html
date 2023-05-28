@@ -2,7 +2,8 @@
 <button name="all student" (click)="findAllStudent()">all student</button>
 <br>
 <br>
-<table>
+
+<table *ngFor="let item of totalStudent">
   <thead>
   <tr>
     <th>id</th>
@@ -14,7 +15,10 @@
 
   <tbody>
   <tr>
-    <td></td>
+    <td>{{item.id}}</td>
+    <td>{{item.name}}</td>
+    <td>{{item.grad}}</td>
+    <td>{{item.faculty.name}}</td>
   </tr>
   </tbody>
 </table>

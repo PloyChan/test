@@ -9,6 +9,7 @@ import {HttpClient} from "@angular/common/http";
 })
 export class StudentComponent {
   title = "Student";
+  totalStudent : any
 
 
   constructor(private http: HttpClient) {
@@ -18,6 +19,7 @@ export class StudentComponent {
   findAllStudent = () => {
     this.http.get("http://localhost:8080/api/student").subscribe({
         next: data => {
+          this.totalStudent = data;
           console.log(data)
         },
         error: err => {
