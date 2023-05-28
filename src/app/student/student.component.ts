@@ -10,6 +10,7 @@ import {HttpClient} from "@angular/common/http";
 export class StudentComponent {
   title = "Student";
   totalStudent : any
+  studentById : any;
 
 
   constructor(private http: HttpClient) {
@@ -28,15 +29,16 @@ export class StudentComponent {
       }
     )
   }
-  findAll() : string {
-    this.http.get("http://localhost:8080/api/student").subscribe({
+  findById()  {
+    let id = (<HTMLInputElement>document.getElementById("id")).value;
+    this.http.get("http://localhost:8080/api/student/"+id).subscribe({
       next : data => {
-        return data;
+        this.studentById = data;
+        console.log(data)
       },
       error: err => {
         console.log("not found student")
       }
     })
-    return 'not found';
   }
 }
