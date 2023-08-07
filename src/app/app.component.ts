@@ -8,7 +8,7 @@ import {WelcomeComponent} from "./welcome/welcome.component";
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'hello-world';
+  title = 'hello-world-student';
 
   constructor(private http: HttpClient) {
     this.http = http;
